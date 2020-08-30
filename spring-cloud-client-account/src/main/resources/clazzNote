@@ -1,0 +1,15 @@
+SpringCloud
+    新建注册器
+    新建微服务1、2(生产者、消费者)
+    微服务间的相互调用
+    安全：spring security
+        导包
+        配置文件
+        创建WebSecurityConfig
+
+    熔断：
+        RestTemplate  fallBack
+        通过控制器完成：
+            FeignClient接口
+            实现FeignClient，取代fallBack
+    注意：使用时记得导包、配置、是在生产者还是消费者方改动、启动类注解加上
