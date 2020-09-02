@@ -25,7 +25,8 @@ public class CityController {
 
 
     /*
-     * http://localhost:667/api/cities/countryId  -----get
+     * http://localhost:667/api/cities/522  -----get
+     * 加了网关后的地址： http://localhost:8759/testService/api/cities/522
      * */
     @GetMapping("/cities/{countryId}")
     public List<City> getCitiesByCountryId(@PathVariable int countryId){
