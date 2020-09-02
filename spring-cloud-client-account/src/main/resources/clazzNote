@@ -1,15 +1,32 @@
 SpringCloud
-    新建注册器
-    新建微服务1、2(生产者、消费者)
-    微服务间的相互调用
-    安全：spring security
-        导包
-        配置文件
-        创建WebSecurityConfig
+    一、生产者和消费者
+        通常两者的界限是模糊的，一个微服务有可能既是生产者，又是消费者
+        新建注册器
+        新建微服务1、2(生产者、消费者)
+        微服务间的相互调用
+        安全：spring security
+            导包
+            配置文件
+            创建WebSecurityConfig
 
-    熔断：
+    二、熔断：
         RestTemplate  fallBack
         通过控制器完成：
             FeignClient接口
             实现FeignClient，取代fallBack
     注意：使用时记得导包、配置、是在生产者还是消费者方改动、启动类注解加上
+    三、网关：
+
+    四、配置中心：
+        属于生产者与消费者的微服务 把与注册中心相关的配置文件放到 git/svn 远程，其他的放到本地的bootstrap.properties，
+    其他微服务通过控制中心拿到相应的配置文件
+
+    五、整个流程：
+        以注册中心为中心，是所有微服务（生产者、消费者、网关、配置中心等）的控制器
+        负载均衡 Ribbon，RestTemplate，可以配置负载均衡策略
+        容错保护 Hystrix 在调用第三方接口的时候出现了问题，为调用第三方接口的方法写一个fallback方法进行绑定
+        整合Ribbon 和 Hystrix的Feign
+        网关 Zuul  在所有微服务的外层加一个网关，可以身份验证、log记录
+        配置中心
+
+

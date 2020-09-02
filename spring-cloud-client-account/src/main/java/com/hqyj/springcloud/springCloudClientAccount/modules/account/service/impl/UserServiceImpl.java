@@ -157,6 +157,10 @@ public class UserServiceImpl implements UserService {
     //@HystrixCommand(fallbackMethod = "getUserByUserIdFallbackMethod")
     public User getUserByUserId(int userId) {
         User user = userDao.getUserByUserId(userId);
+        if (user == null){
+            return null;
+        }
+
         //这里调用另外一个微服务的接口，拿到数据进行包装
 //        List<City> cities = Optional.ofNullable(restTemplate
 //                .getForObject("http://CLIENT-TEST/api/cities/{countryId}"

@@ -24,6 +24,7 @@ public class UserController {
 
     /**
      * 127.0.0.1:667/api/user/userId   ---- get
+     * 网关后的路径：http://127.0.0.1:8759/accountService/api/user/1
      */
     @GetMapping("/user/{userId}")
     public User getUserByUserId(@PathVariable int userId) {
